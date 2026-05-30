@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoBudget – Carbon & Money Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">🌍 EcoBudget</div>
+
+        <h3>⚙ Settings</h3>
+
+        <label class="field-label">Monthly Income (₹)</label>
+        <input type="number" class="input" value="50000">
+
+        <label class="field-label">Monthly Carbon Target (kg CO₂e)</label>
+        <input type="number" class="input" value="300">
+
+        <label class="field-label">Goal Style</label>
+        <select class="input">
+            <option>Balanced (money + carbon)</option>
+            <option>Save Money</option>
+            <option>Eco-first</option>
+        </select>
+
+        <button class="btn btn-outline">🧹 Clear all expenses</button>
+
+        <div class="sidebar-footer">
+            <p>Track money + carbon in one place.</p>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Title -->
+        <header class="main-header">
+            <h1 class="big-title">EcoBudget – Smart Money & Carbon Planner</h1>
+            <p class="sub-title">
+                Plan your monthly budget, track expenses, and see their carbon impact in one place.
+            </p>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+            <button class="tab-btn" data-tab="add">➕ Add Expense</button>
+            <button class="tab-btn" data-tab="insights">🔍 Insights & Chatbot</button>
+        </div>
+
+        <!-- ===================== TAB 1: OVERVIEW ===================== -->
+        <section class="tab-page" id="tab-overview">
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="card kpi">
+                    <h3>Monthly Income</h3>
+                    <p class="kpi-value">₹50,000</p>
+                </div>
+                <div class="card kpi">
+                    <h3>Total Spend</h3>
+                    <p class="kpi-value">₹20,000</p>
+                    <p class="kpi-sub">40.0% of income</p>
+                </div>
+                <div class="card kpi">
+                    <h3>Estimated Savings</h3>
+                    <p class="kpi-value">₹30,000</p>
+                    <p class="kpi-sub">60.0% saved</p>
+                </div>
+                <div class="card kpi">
+                    <h3>Total Carbon</h3>
+                    <p class="kpi-value">120.5 kg CO₂e</p>
+                    <p class="kpi-sub">40.2% of target</p>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="card">
+                <h2>📈 Budget & Carbon Progress</h2>
+
+                <p class="progress-label">Budget usage</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:40%;"></div>
+                </div>
+
+                <p class="progress-label">Carbon usage</p>
+                <div class="progress-bar">
+                    <div class="progress-fill green" style="width:40%;"></div>
+                </div>
+            </div>
+
+            <!-- Recent expenses -->
+            <div class="card">
+                <h2>🧾 Recent Expenses</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount (₹)</th>
+                        <th>Carbon (kg CO₂e)</th>
+                        <th>Notes</th>
+                    </tr>
+                    </thead>
+                    
+                </table>
+            </div>
+
+            <!-- Category breakdown -->
+            <div class="card">
+                <h2>💸 Spend & Carbon by Category</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Spend (₹)</th>
+                        <th>Total Carbon (kg CO₂e)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Transport</td>
+                        <td>3,000</td>
+                        <td>750.0</td>
+                    </tr>
+                    <tr>
+                        <td>Food</td>
+                        <td>4,000</td>
+                        <td>480.0</td>
+                    </tr>
+                    <tr>
+                        <td>Shopping</td>
+                        <td>5,000</td>
+                        <td>750.0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Eco score -->
+            <div class="card">
+                <h2>🏆 EcoBudget Score</h2>
+                <p class="score">82 / 100</p>
+                <p class="score-text good">
+                    🔥 Great job! You are doing very well on your budget and eco-goals.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===================== TAB 2: ADD EXPENSE ===================== -->
+        <section class="tab-page hidden" id="tab-add">
+            <h2 class="section-title">➕ Add a New Expense</h2>
+
+            <div class="card">
+                <form class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" class="input">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="input">
+                                <option>Transport</option>
+                                <option>Food</option>
+                                <option>Shopping</option>
+                                <option>Bills</option>
+                                <option>Entertainment</option>
+                                <option>Travel</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Amount (₹)</label>
+                            <input type="number" class="input" min="1" value="500">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Notes (optional)</label>
+                        <input type="text" class="input" placeholder="Example: Ola ride, Zomato order, EB bill">
+                    </div>
+                    <button class="btn" type="button">Add Expense</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>📄 All Added Expenses</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount (₹)</th>
+                        <th>Carbon (kg CO₂e)</th>
+                        <th>Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2025-12-01</td>
+                        <td>Transport</td>
+                        <td>200</td>
+                        <td>50.0</td>
+                        <td>Ola to college</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===================== TAB 3: INSIGHTS & CHATBOT ===================== -->
+        <section class="tab-page hidden" id="tab-insights">
+            <h2 class="section-title">🔍 Insights & Chatbot Suggestions</h2>
+
+            <div class="card">
+                <h3>🕒 Last 30 Days Snapshot</h3>
+                <p>Spend (30 days): <strong>₹8,500</strong></p>
+                <p>Carbon (30 days): <strong>320.5 kg CO₂e</strong></p>
+
+                <h3>🎯 Focus Areas</h3>
+                <p>Highest spend category: <strong>Shopping</strong> (₹5,000)</p>
+                <p>Highest carbon category: <strong>Transport</strong> (750.0 kg CO₂e)</p>
+            </div>
+
+            <div class="card">
+                <h3>💬 Eco Chatbot</h3>
+                <label class="field-label">Your question (money + carbon)</label>
+                <textarea class="input textarea" rows="3"
+                          placeholder="Example: How can I reduce transport cost and emissions?"></textarea>
+                <button class="btn" type="button">Get suggestion</button>
+
+                <div class="chat-reply">
+                    <strong>Chatbot:</strong>
+                    <pre>
+Transport & travel usually create a lot of carbon.
+
+- Use public transport when possible (bus/metro)
+- Combine multiple small trips into one
+- Walk or cycle for short distances
+- Share rides with friends instead of going alone
+                    </pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>✨ General Tips</h3>
+                <div class="chip-row">
+                    <span class="badge">Transport</span>
+                    <span class="badge">Food</span>
+                    <span class="badge">Bills</span>
+                    <span class="badge">Shopping</span>
+                </div>
+                <ul class="tip-list">
+                    <li>Replace some cab rides with walking, cycling, or public transport.</li>
+                    <li>Fewer food delivery orders, more home-cooked meals.</li>
+                    <li>Keep AC at 24–26°C, use LED bulbs, and turn devices off when not in use.</li>
+                    <li>Delay non-essential purchases; buy durable items that last longer.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+    // Simple tab switcher (no backend, just UI)
+    const buttons = document.querySelectorAll('.tab-btn');
+    const pages = {
+        overview: document.getElementById('tab-overview'),
+        add: document.getElementById('tab-add'),
+        insights: document.getElementById('tab-insights')
+    };
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            Object.values(pages).forEach(p => p.classList.add('hidden'));
+            const target = btn.dataset.tab;
+            pages[target].classList.remove('hidden');
+        });
+    });
+</script>
+</body>
+</html>
